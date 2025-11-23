@@ -1,0 +1,75 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+.cache/
+.temp/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+*.log.*
+log.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+.env/
+venv/
+.venv/
+
+# Reports / temp
+*.pdf
+*.zip
+*.tar
+*.tar.gz
+
+# Streamlit cache
+.streamlit/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Builds and artifacts
+*.out
+*.class
+*.exe
+
+# Local DB files
+*.sqlite
+*.db
+
+# React / Web
+*.cache/
+.sass-cache/
+.next/
+out/
+.eslintcache
+
+# Byte-compiled files
+*.bak
+
+# Generated files
+coverage/

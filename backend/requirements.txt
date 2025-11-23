@@ -1,0 +1,9 @@
+Django>=4.2
+djangorestframework
+pandas
+reportlab
+djangorestframework-simplejwt
+
+PyQt5
+requests
+matplotlib

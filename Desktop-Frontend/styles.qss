@@ -1,0 +1,212 @@
+/* ---------------------------- */
+/* Global App Style (Dark Theme) */
+/* ---------------------------- */
+
+QWidget {
+    background-color: #1E1E2E;
+    color: #ECECEC;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+    background: #2A2A3A;
+    width: 12px;
+    border-radius: 6px;
+}
+QScrollBar::handle:vertical {
+    background: #5E5E7D;
+    min-height: 20px;
+    border-radius: 6px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #7A7A9C;
+}
+
+QScrollBar:horizontal {
+    background: #2A2A3A;
+    height: 12px;
+    border-radius: 6px;
+}
+QScrollBar::handle:horizontal {
+    background: #5E5E7D;
+    min-width: 20px;
+    border-radius: 6px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #7A7A9C;
+}
+
+/* ----------------------- */
+/* Header Buttons (Upload) */
+/* ----------------------- */
+
+QPushButton {
+    background-color: #3A3A4F;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    border: 1px solid #4A4A60;
+}
+
+QPushButton:hover {
+    background-color: #50506A;
+}
+
+QPushButton:pressed {
+    background-color: #6A6A85;
+}
+
+/* Logout button special */
+QPushButton#logoutBtn {
+    background-color: #B33A3A;
+    border-color: #D64C4C;
+}
+
+QPushButton#logoutBtn:hover {
+    background-color: #D64C4C;
+}
+
+/* ----------------------- */
+/* Table (Data Table)      */
+/* ----------------------- */
+
+QTableWidget {
+    background-color: #252535;
+    gridline-color: #3E3E55;
+    border-radius: 8px;
+    border: 1px solid #34344A;
+    padding: 8px;
+}
+
+QHeaderView::section {
+    background-color: #3F51B5;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-right: 1px solid #1E1E2E;
+    font-weight: bold;
+}
+
+QTableWidget::item {
+    background-color: #2B2B3C;
+    padding: 6px;
+    border-bottom: 1px solid #3E3E55;
+}
+
+QTableWidget::item:selected {
+    background-color: #5C6BC0;
+}
+
+/* Alternating rows */
+QTableWidget::item:alternate {
+    background-color: #323245;
+}
+
+/* ----------------------- */
+/* History Section         */
+/* ----------------------- */
+
+QListWidget {
+    background-color: #1F1F2E;
+    border-radius: 8px;
+    border: 1px solid #34344A;
+    padding: 8px;
+}
+
+QListWidget::item {
+    padding: 6px;
+    background-color: #2B2B3C;
+    border-bottom: 1px solid #3A3A50;
+}
+
+QListWidget::item:selected {
+    background-color: #3949AB;
+}
+
+/* ----------------------- */
+/* Group Boxes / Frames     */
+/* ----------------------- */
+
+QGroupBox {
+    background-color: #252535;
+    border: 1px solid #34344A;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* ----------------------- */
+/* Line Edit / Input Fields */
+/* ----------------------- */
+
+QLineEdit {
+    background-color: #2A2A3A;
+    border: 1px solid #4A4A60;
+    border-radius: 6px;
+    padding: 8px;
+    color: #ECECEC;
+}
+QLineEdit:hover {
+    border: 1px solid #6C6C8A;
+}
+
+/* ----------------------- */
+/* ComboBox                */
+/* ----------------------- */
+
+QComboBox {
+    background-color: #2A2A3A;
+    border: 1px solid #4A4A60;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #2A2A3A;
+    selection-background-color: #5C6BC0;
+}
+
+/* ----------------------- */
+/* Chart Container (Widget) */
+/* ----------------------- */
+
+#chartContainer {
+    background-color: #252535;
+    border: 1px solid #34344A;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* ----------------------- */
+/* Status Labels           */
+/* ----------------------- */
+
+QLabel#statusLabel {
+    font-size: 13px;
+    color: #A0A0B8;
+    padding: 5px;
+}
+
+/* ----------------------- */
+/* Login Window            */
+/* ----------------------- */
+
+#loginBox {
+    background-color: #242434;
+    border-radius: 12px;
+    border: 1px solid #3A3A50;
+    padding: 20px;
+}
+
+QPushButton#loginButton {
+    background-color: #3949AB;
+    border-radius: 8px;
+}
+
+QPushButton#loginButton:hover {
+    background-color: #5C6BC0;
+}
