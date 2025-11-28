@@ -9,73 +9,61 @@ export const api = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-// Attach access token to axios defaults when available
 export function setAuthToken(token) {
   if (token) api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   else delete api.defaults.headers.common["Authorization"];
 }
 
-// Save tokens helper (centralized)
 function saveTokens({ access, refresh }) {
   if (access) localStorage.setItem("access", access);
   if (refresh) localStorage.setItem("refresh", refresh);
   setAuthToken(access || null);
 }
 
-// Login and get tokens
 export async function loginGetToken(username, password) {
   const res = await api.post("token/", { username, password });
   saveTokens({ access: res.data.access, refresh: res.data.refresh });
   return res.data;
 }
 
-// Refresh access token using refresh token
 export async function refreshAccessToken() {
   const refresh = localStorage.getItem("refresh");
   if (!refresh) return null;
   try {
     const res = await api.post("token/refresh/", { refresh });
-    saveTokens({ access: res.data.access }); // update access only
+    saveTokens({ access: res.data.access });
     return res.data.access;
   } catch (e) {
-    // refresh failed (expired/invalid) — clear tokens
     logout();
     return null;
   }
 }
 
-// Logout: clear storage & headers
 export function logout() {
   localStorage.removeItem("access");
   localStorage.removeItem("refresh");
   setAuthToken(null);
 }
 
-// Auto load token on module import (page refresh)
+// Auto-load access token from storage on import (keeps axios header set)
 const saved = localStorage.getItem("access");
 if (saved) setAuthToken(saved);
 
-// Axios response interceptor to handle 401 -> try refresh -> retry once
+// Retry once on 401 using refresh token
 api.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const originalRequest = error.config;
-    if (!originalRequest) return Promise.reject(error);
-
-    // Only try once
-    if (error.response && error.response.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
-
-      // Try to refresh the token
-      const newAccess = await refreshAccessToken();
-      if (newAccess) {
-        // Ensure header is set for this request and retry
-        originalRequest.headers["Authorization"] = `Bearer ${newAccess}`;
-        return api(originalRequest);
+  (r) => r,
+  async (err) => {
+    const original = err.config;
+    if (!original) return Promise.reject(err);
+    if (err.response?.status === 401 && !original._retry) {
+      original._retry = true;
+      const na = await refreshAccessToken();
+      if (na) {
+        original.headers["Authorization"] = `Bearer ${na}`;
+        return api(original);
       }
-      // no refresh -> reject with original error
     }
-    return Promise.reject(error);
+    return Promise.reject(err);
   }
 );
 

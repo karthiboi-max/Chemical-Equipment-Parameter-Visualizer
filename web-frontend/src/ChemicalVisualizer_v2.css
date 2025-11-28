@@ -1,0 +1,306 @@
+/* =============================
+   GLOBAL
+============================= */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f8fa;
+  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+.App {
+  padding: 28px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Smooth animations */
+* {
+  transition: 0.2s ease;
+}
+
+/* =============================
+   DARK MODE
+============================= */
+.dark-mode {
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+}
+
+.dark-mode .card {
+  background: #161b22 !important;
+  border-color: #252c33 !important;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+  background: #0d1117 !important;
+  border-color: #30363d !important;
+  color: #e6edf3 !important;
+}
+
+.dark-mode table {
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+.dark-mode thead {
+  background: #1f6feb;
+}
+
+.dark-mode .history-sidebar {
+  background: #161b22 !important;
+  border-color: #30363d !important;
+}
+
+/* =============================
+   HEADER
+============================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-title {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* =============================
+   BUTTONS
+============================= */
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #eef1f6;
+  color: #1a1a1a;
+}
+.btn-secondary:hover {
+  background: #e2e7ef;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+.btn-danger:hover {
+  background: #bb2d3b;
+}
+
+/* =============================
+   UPLOAD BOX
+============================= */
+.upload-box {
+  border: 2px dashed #bfc4cc;
+  padding: 36px;
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-box:hover {
+  border-color: #2563eb;
+  background: #f3f7ff;
+}
+
+/* =============================
+   CARD (universal section box)
+============================= */
+.card {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 22px;
+}
+
+.card-title {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* =============================
+   GRID LAYOUT
+============================= */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 900px) {
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================
+   INPUTS
+============================= */
+input, select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cfd4dc;
+  width: 100%;
+  font-size: 14px;
+  background: white;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* =============================
+   TABLE
+============================= */
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+thead {
+  background: #2563eb;
+  color: white;
+}
+
+th, td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #ececec;
+}
+
+tbody tr:hover {
+  background: #f3f7ff;
+}
+
+/* =============================
+   HISTORY SIDEBAR
+============================= */
+.history-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  background: #ffffff;
+  border-left: 1px solid #e5e7eb;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 14px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.history-item:hover {
+  background: #e8ecf3;
+}
+
+/* =============================
+   CHARTS
+============================= */
+.chart-container {
+  height: 350px;
+  width: 100%;
+}
+
+/* =============================
+   TOGGLE SWITCH
+============================= */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle-switch {
+  width: 48px;
+  height: 26px;
+  background: #c4cbd4;
+  border-radius: 13px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-switch.active {
+  background: #2563eb;
+}
+
+.toggle-switch::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.toggle-switch.active::after {
+  left: 24px;
+}
+
+/* =============================
+   UTILITIES
+============================= */
+.flex {
+  display: flex;
+  gap: 12px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mt-2 { margin-top: 12px; }
+.mt-3 { margin-top: 18px; }
+.mt-4 { margin-top: 26px; }
+.mb-2 { margin-bottom: 12px; }
+.mb-3 { margin-bottom: 18px; }
