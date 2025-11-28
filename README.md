@@ -197,5 +197,28 @@ A login window will appear. Use the credentials created in the Backend setup.
 | **401 Unauthorized (Web)** | Check the browser console to ensure the access token is being correctly retrieved, stored in localStorage, and attached via the Axios interceptor logic in api.js. |
 | **Login Failed (Desktop)** | Verify the API\_BASE in desk-app.py is correct and the Django server is running. Check the backend terminal for request logs. |
 | **reportlab missing** | Run pip install reportlab. |
+
+
+Quick links & commands cheat sheet:
+
+# Backend (first-time)
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+
+# Frontend
+cd web-frontend
+npm install
+npm start
+
+# Desktop
+cd desktop-application
+pip install pyqt5 matplotlib pandas requests reportlab
+python desk-app.py
+
 | **Frontend build errors** | Use Node 18+. Try deleting node\_modules and package-lock.json, then run npm install again. |
 
